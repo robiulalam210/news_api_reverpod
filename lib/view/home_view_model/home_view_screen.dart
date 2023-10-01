@@ -28,6 +28,7 @@ class HomeViewState extends ConsumerState<HomeView> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.amber,
         title: Text("News"),
         actions: [
           IconButton(onPressed: (){
@@ -43,11 +44,11 @@ class HomeViewState extends ConsumerState<HomeView> {
       ),
       body: Consumer(
         builder: (context, ref, child) {
-          // if (state is InitialNewsState) {
-          //   return Text("Press Fab");
-          // }
+          if (state is InitialNewsState) {
+            return Text("Press Fab");
+          }
           if (state is NewsLoadingNewsState) {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           }
           if (state is ErrorNewsState) {
             return Text(state.message);
