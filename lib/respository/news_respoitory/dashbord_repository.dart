@@ -15,6 +15,7 @@ class DashbordRepository {
 
     var jsonData = response['articles'];
     var jsonDataEncode = jsonEncode(jsonData);
+    print(jsonData);
     return newsListModelFromJson(jsonDataEncode);
   }
 
